@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Casa do Código - Listando produtos</title>
+</head>
+
+<body>
+    <table border="1">
+        <thead>
+            <th>ID</th>
+            <th>NOME</th>
+            <th>DESCRICAO</th>
+            <th>VALOR</th>
+        </thead>
+        <tbody>
+            <% for(var i = 0;i < lista.length; i++) { %>
+                <tr>
+                    <td><%= lista[i].ID %></td>
+                    <td><%= lista[i].NOME %></td>
+                    <td><%= lista[i].DESCRICAO %></td>
+                    <td><%= lista[i].VALOR %></td>
+                </tr>
+            <% } %>
+        </tbody>
+
+    </table>
+    <a href="/">Voltar para home</a>
+</body>
+
+</html>
