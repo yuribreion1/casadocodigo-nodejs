@@ -37,7 +37,7 @@ module.exports = app => {
             }
             else console.log(data);
 
-            res.redirect('/');
+            res.redirect('/produtos');
         });
     });
 }
