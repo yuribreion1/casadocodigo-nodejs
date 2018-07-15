@@ -2,6 +2,8 @@
 <html lang="en">
 
 <head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+        crossorigin="anonymous">
     <meta charset="UTF-8">
     <title>Casa do Código - Listando produtos</title>
 </head>
@@ -17,12 +19,20 @@
         <tbody>
             <% for(var i = 0;i < lista.length; i++) { %>
                 <tr>
-                    <td><%= lista[i].ID %></td>
-                    <td><%= lista[i].NOME %></td>
-                    <td><%= lista[i].DESCRICAO %></td>
-                    <td><%= lista[i].VALOR %></td>
+                    <td>
+                        <%= lista[i].ID %>
+                    </td>
+                    <td>
+                        <%= lista[i].NOME %>
+                    </td>
+                    <td>
+                        <%= lista[i].DESCRICAO %>
+                    </td>
+                    <td>
+                        <%= lista[i].VALOR %>
+                    </td>
                 </tr>
-            <% } %>
+                <% } %>
         </tbody>
 
     </table>
