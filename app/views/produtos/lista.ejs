@@ -9,34 +9,51 @@
 </head>
 
 <body>
-    <table border="1">
-        <thead>
-            <th>ID</th>
-            <th>NOME</th>
-            <th>DESCRICAO</th>
-            <th>VALOR</th>
-        </thead>
-        <tbody>
-            <% for(var i = 0;i < lista.length; i++) { %>
-                <tr>
-                    <td>
-                        <%= lista[i].ID %>
-                    </td>
-                    <td>
-                        <%= lista[i].NOME %>
-                    </td>
-                    <td>
-                        <%= lista[i].DESCRICAO %>
-                    </td>
-                    <td>
-                        <%= lista[i].VALOR %>
-                    </td>
-                </tr>
-                <% } %>
-        </tbody>
+    <main class="container">
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <a class="navbar-brand" href="#">Admin</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup"
+                aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                <div class="navbar-nav">
+                    <a class="nav-item nav-link" href="/">Home</a>
+                    <a class="nav-item nav-link active" href="/produtos">Lista de produtos</a>
+                    <a class="nav-item nav-link" href="/produtos/form">Cadastro de produto
+                    </a>
+                </div>
+            </div>
+        </nav>
+        <table border="1" class="table table-hover">
+            <thead>
+                <th scope="col">ID</th>
+                <th scope="col">NOME</th>
+                <th scope="col">DESCRICAO</th>
+                <th scope="col">VALOR</th>
+            </thead>
+            <tbody>
+                <% for(var i = 0;i < lista.length; i++) { %>
+                    <tr>
+                        <td>
+                            <%= lista[i].ID %>
+                        </td>
+                        <td>
+                            <%= lista[i].NOME %>
+                        </td>
+                        <td>
+                            <%= lista[i].DESCRICAO %>
+                        </td>
+                        <td>
+                            <%= lista[i].VALOR %>
+                        </td>
+                    </tr>
+                    <% } %>
+            </tbody>
 
-    </table>
-    <a href="/">Voltar para home</a>
+        </table>
+        <a href="/">Voltar para home</a>
+    </main>
 </body>
 
 </html>
