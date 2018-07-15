@@ -7,12 +7,15 @@ module.exports = app => {
         var produtoDAO = new app.infra.ProdutoDAO(connection);
 
         produtoDAO.lista((err, data) => {
-            if (err) {
-                res.status(404).render('erros/404');
-                res.status(500).render('erros/500');
-            } else {
-                res.render('produtos/lista', { lista: data });
-            }
+            res.format({
+                html: () => {
+                    res.render('produtos/lista', {lista: data});
+                },
+                json: () => {
+                    res.json(data);
+                }
+            });
+
         });
         connection.close();
 
@@ -39,5 +42,6 @@ module.exports = app => {
 
             res.redirect('/produtos');
         });
+        connection.close();
     });
 }
