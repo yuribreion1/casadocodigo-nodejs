@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Casa do Código - Cadastro de Produto</title>
+</head>
+
+<body>
+    <form action="/produtos/salva" method="post">
+        <div>
+            <label for="id">ID</label>
+            <input type="text" id="id" name="ID" placeholder="coloque o id" />
+        </div>
+        <div>
+            <label for="titulo">Titulo</label>
+            <input type="text" id="titulo" name="NOME" placeholder="coloque o titulo" />
+        </div>
+        <div>
+            <label for="descricao">Descrição</label>
+            <textarea cols="20" rows="10" id="descricao" name="DESCRICAO" placeholder="fale sobre o livro"></textarea>
+        </div>
+        <div>
+            <label for="preco">Preço</label>
+            <input type="text" id="preco" name="VALOR" placeholder="150.25" />
+        </div>
+        <input type="submit" value="gravar" />
+    </form>
+</body>
+
+</html>
