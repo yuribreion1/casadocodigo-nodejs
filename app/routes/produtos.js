@@ -7,14 +7,18 @@ module.exports = app => {
         var produtoDAO = new app.infra.ProdutoDAO(connection);
 
         produtoDAO.lista((err, data) => {
-            res.format({
-                html: () => {
-                    res.render('produtos/lista', {lista: data});
-                },
-                json: () => {
-                    res.json(data);
-                }
-            });
+            if (!err) {
+                res.format({
+                    html: () => {
+                        res.render('produtos/lista', { lista: data });
+                    },
+                    json: () => {
+                        res.json(data);
+                    }
+                });
+            } else {
+                console.log(err);
+            }
 
         });
         connection.close();
@@ -25,7 +29,7 @@ module.exports = app => {
         res.render('produtos/form');
     });
 
-    app.post('/produtos/salva', (req, res) => {
+    app.post('/produtos', (req, res) => {
 
         var connection = app.infra.connectionFactory();
         var produtoDAO = new app.infra.ProdutoDAO(connection);
@@ -33,14 +37,18 @@ module.exports = app => {
         var produto = req.body;
 
         produtoDAO.salva(produto, (err, data) => {
-            if(err) {
-                console.log('===============\n')
+            if (!err) {
+                res.format({
+                    html: () => {
+                        res.render('produtos/lista', { lista: data });
+                    },
+                    json: () => {
+                        res.json(data);
+                    }
+                });
+            } else {
                 console.log(err);
-                console.log('\n===============')
             }
-            else console.log(data);
-
-            res.redirect('/produtos');
         });
         connection.close();
     });
