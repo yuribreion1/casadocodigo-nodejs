@@ -15,3 +15,17 @@ cd <your-folder-name>
 ```
 npm i casadocodigo-nodejs
 ```
+
+***
+
+## O que eu aprendi neste treinamento:
+
+* Conhecendo a biblioteca [Express](http://expressjs.com/pt-br/)
+  * Instalando a biblioteca `npm i express --save`
+  * Carregando ela no projeto `var express = require('express');`
+  * Usando ele em uma variável inicializada `var app = require('express')();`
+
+* Trabalhando com [EJS](http://ejs.co/) para paginas dinâmicas
+    * Instalação `npm i ejs --save`
+    * Definindo como padrão para paginas `app.set('view engine', 'ejs');`
+    * Listagem dinâmica de produtos cadastrados
