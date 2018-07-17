@@ -1,5 +1,5 @@
 var express = require('express');
-var load = require('express-load');
+var consign = require('consign');
 var logger = require('morgan');
 var bodyParser = require('body-parser');
 var expressValidator = require('express-validator');
@@ -14,7 +14,13 @@ module.exports = () => {
     app.use(bodyParser.json());
     app.use(expressValidator());
     
-    load('infra', { cwd: 'app', verbose: true })
+    consign( 
+        {   cwd: 'app', 
+            verbose: true,
+            locale: 'pt-br',
+            logger: console
+         })
+        .include('infra')
         .then('routes')
         .into(app);
 
