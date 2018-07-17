@@ -29,3 +29,12 @@ npm i casadocodigo-nodejs
     * Instalação `npm i ejs --save`
     * Definindo como padrão para paginas `app.set('view engine', 'ejs');`
     * Listagem dinâmica de produtos cadastrados
+
+* Conectando a aplicação ao banco de dados relacionado do [IBM Cloud(DashDB)](https://www.ibm.com/analytics/br/pt/technology/data-warehousing/), módulo `ibm_db`
+  * Usando VCAP_SERVICES para segurança de dados de conexão
+  * Criando prototypes para funções de consulta e inserção no banco
+
+* Otimização do projeto com [Consign](https://www.npmjs.com/package/consign), e organizando carregamento de rotas
+  * Instalando o consign `npm i consign --save`
+
+* Usando serviço REST para cadastro massivo de produtos através do `cadastra-livro-terminal.js`
