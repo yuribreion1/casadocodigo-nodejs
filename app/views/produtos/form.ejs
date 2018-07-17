@@ -26,25 +26,40 @@
                 </div>
             </div>
         </nav>
-        <form action="/produtos" method="post">
-            <div class="form-group">
-                <label for="id">ID</label>
-                <input required class="form-control" type="number" id="id" name="ID" placeholder="Coloque um ID numérico" />
-            </div>
-            <div class="form-group">
-                <label for="titulo">Titulo</label>
-                <input required class="form-control" type="text" id="titulo" name="NOME" placeholder="Adicione um titulo" />
-            </div>
-            <div class="form-group">
-                <label for="descricao">Descrição</label>
-                <textarea required class="form-control" cols="20" rows="10" id="descricao" name="DESCRICAO" placeholder="Fale mais sobre o produto"></textarea>
-            </div>
-            <div class="form-group">
-                <label for="preco">Preço</label>
-                <input required class="form-control" type="text" id="preco" name="VALOR" placeholder="150.25" />
-            </div>
-            <input class="btn btn-primary" type="submit" value="Gravar produto" />
-        </form>
+
+        <% if (errosValidacao) { %>
+
+            <% for(var i = 0; i < errosValidacao.length; i++) { %>
+                <div class="alert alert-danger" role="alert">
+                    <ul>
+                        <li>
+                            <%= errosValidacao[i].param %> -
+                                <%= errosValidacao[i].msg %>
+                        </li>
+                    </ul>
+                </div>
+                <% } %>
+
+                    <% } %>
+                        <form action="/produtos" method="post">
+                            <div class="form-group">
+                                <label for="id">ID</label>
+                                <input class="form-control" type="number" id="id" name="ID" placeholder="Coloque um ID numérico" />
+                            </div>
+                            <div class="form-group">
+                                <label for="titulo">Titulo</label>
+                                <input class="form-control" type="text" id="titulo" name="NOME" placeholder="Adicione um titulo" />
+                            </div>
+                            <div class="form-group">
+                                <label for="descricao">Descrição</label>
+                                <textarea class="form-control" cols="20" rows="10" id="descricao" name="DESCRICAO" placeholder="Fale mais sobre o produto"></textarea>
+                            </div>
+                            <div class="form-group">
+                                <label for="preco">Preço</label>
+                                <input class="form-control" type="text" id="preco" name="VALOR" placeholder="150.25" />
+                            </div>
+                            <input class="btn btn-primary" type="submit" value="Gravar produto" />
+                        </form>
     </main>
 </body>
 
