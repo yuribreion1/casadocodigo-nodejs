@@ -29,7 +29,7 @@ module.exports = app => {
     });
 
     app.get('/produtos/form', (req, res) => {
-        res.render('produtos/form', { errosValidacao: {}, produto: {} });
+        res.render('produtos/form', { validationErrors: {}, produto: {} });
     });
 
     app.post('/produtos', (req, res) => {
@@ -37,18 +37,14 @@ module.exports = app => {
         var produto = req.body;
         console.log(produto);
 
-
-        req.assert('Nome do livro', 'Titulo é obrigatório').notEmpty();
-        req.assert('Descrição do livro', 'Descrição é obrigatória').notEmpty();
-
-        var erros = req.validationErrors();
-        if (erros) {
+        var errors = req.validationErrors();
+        if (errors) {
             res.format({
                 html: () => {
-                    res.status(400).render('produtos/form', { errosValidacao: erros, produto: produto });
+                    res.status(400).render('produtos/form', { validationErrors: errors, produto: produto });
                 },
                 json: () => {
-                    res.status(400).json(erros);
+                    res.status(400).json(errors);
                 }
             });
 
@@ -60,7 +56,7 @@ module.exports = app => {
             if (!err) {
                 res.format({
                     html: () => {
-                        res.render('produtos/lista', { lista: data });
+                        res.redirect('/produtos');
                     },
                     json: () => {
                         res.json(data);

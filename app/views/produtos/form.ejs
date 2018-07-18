@@ -27,14 +27,14 @@
             </div>
         </nav>
         <div class="alert alert-danger" role="alert">
-            <% if (errosValidacao) { %>
+            <% if (validationErrors) { %>
 
-                <% for(var i = 0; i < errosValidacao.length; i++) { %>
+                <% for(var i = 0; i < validationErrors.length; i++) { %>
 
                     <ul>
                         <li>
-                            <%= errosValidacao[i].param %> -
-                                <%= errosValidacao[i].msg %>
+                            <%= validationErrors[i].param %> -
+                                <%= validationErrors[i].msg %>
                         </li>
                     </ul>
 
